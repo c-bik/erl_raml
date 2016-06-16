@@ -1,8 +1,0 @@
-{application,erl_raml,
-             [{description,"RAML to erlang code generator"},
-              {vsn,"0.0.1"},
-              {registered,[]},
-              {applications,[kernel,stdlib,yamerl,jsx]},
-              {mod,{erl_raml,[]}},
-              {env,[]},
-              {modules,[erl_raml,parse,parse_raml]}]}.
