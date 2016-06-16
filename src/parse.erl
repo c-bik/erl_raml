@@ -2,6 +2,7 @@
 
 -export([file/1]).
 
+% werl.exe -pa ebin/ -pa deps/*/ebin/ -s erl_raml
 % parse:file("C:/projects/git/cpro/p2a_sms_tariff.raml").
 file(File) ->
     [map(Raml) || Raml <- yamerl_constr:file(File)].
@@ -15,7 +16,8 @@ map(Raml) ->
          ({"mediaType", V}, M) -> M#{mediaType  => list_to_binary(V)};
          ({"schema", V}, M)    -> M#{schema  => list_to_binary(V)};
          ({"description", V}, M) -> M#{description  => list_to_binary(V)};
-         ({"type", V}, M) -> M#{type  => list_to_binary(V)};
+         ({"type", "string"}, M) -> M#{type  => string};
+         ({"type", "integer"}, M) -> M#{type  => integer};
          ({"pattern", V}, M) -> M#{pattern  => list_to_binary(V)};
          ({"required", V}, M) when V == true; V == false -> M#{required  => V};
          ({"repeat", V}, M) when V == true; V == false -> M#{repeat  => V};
