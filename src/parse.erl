@@ -2,7 +2,7 @@
 
 -export([file/1]).
 
-% werl.exe -pa ebin/ -pa deps/*/ebin/ -s erl_raml
+% werl.exe -pa ebin/ -pa deps/*/ebin/ -s erl_raml &
 % parse:file("C:/projects/git/cpro/p2a_sms_tariff.raml").
 file(File) ->
     [map(Raml) || Raml <- yamerl_constr:file(File)].
